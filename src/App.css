@@ -36,3 +36,132 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+
+/* Estilo general para el contenedor */
+.container {
+  max-width: 800px; /* Ancho máximo para la página */
+  margin: 20px auto; /* Centrado automático con margen en la parte superior */
+  padding: 20px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde alrededor del contenedor */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  background-color: #f9f9f9; /* Fondo claro */
+}
+
+/* Estilo para el título */
+h1 {
+  text-align: center; /* Centrar el título */
+  color: #333; /* Color del texto */
+}
+
+/* Estilo para el formulario */
+form {
+  display: flex; /* Flexbox para alinear los elementos */
+  flex-direction: column; /* Colocar elementos en una columna */
+  gap: 10px; /* Espacio entre elementos */
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde ligero */
+  border-radius: 4px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Estilo para el botón de envío */
+button {
+  padding: 10px; /* Espaciado interno */
+  background-color: #28a745; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño de fuente */
+  transition: background-color 0.3s; /* Efecto de transición */
+}
+
+/* Efecto hover para el botón */
+button:hover {
+  background-color: #218838; /* Color más oscuro al pasar el mouse */
+}
+
+/* Estilo para la lista de usuarios */
+ul {
+  list-style-type: none; /* Sin viñetas */
+  padding: 0; /* Sin padding */
+}
+
+/* Estilo para cada usuario */
+li {
+  background-color: #fff; /* Fondo blanco */
+  margin: 10px 0; /* Margen entre los elementos */
+  padding: 15px; /* Espaciado interno */
+  border: 1px solid #ddd; /* Borde ligero */
+  border-radius: 4px; /* Bordes redondeados */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+/* Estilo para el botón de editar y eliminar */
+li button {
+  margin-right: 5px; /* Espacio entre los botones */
+  background-color: #007bff; /* Color azul para el botón de editar */
+}
+
+li button:last-child {
+  background-color: #dc3545; /* Color rojo para el botón de eliminar */
+}
+
+/* Efecto hover para los botones de editar y eliminar */
+li button:hover {
+  opacity: 0.8; /* Efecto de opacidad al pasar el mouse */
+}
+/* App.css */
+
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f2f5; /* Color de fondo suave */
+  padding: 20px; /* Espaciado alrededor de la aplicación */
+}
+
+.navbar {
+  display: flex;
+  justify-content: center; /* Centrar los botones horizontalmente */
+  margin-bottom: 20px; /* Espacio entre la barra de navegación y el contenido */
+  background-color: #007bff; /* Color de fondo de la barra de navegación */
+  padding: 10px 0; /* Espaciado superior e inferior */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.nav-button {
+  background-color: #ffffff; /* Color de fondo de los botones */
+  color: #007bff; /* Color del texto de los botones */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados para los botones */
+  padding: 10px 15px; /* Espaciado interno de los botones */
+  margin: 0 10px; /* Margen entre los botones */
+  cursor: pointer; /* Cambiar cursor al pasar el mouse */
+  font-size: 16px; /* Tamaño de fuente del botón */
+  transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+.nav-button:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el mouse */
+  color: white; /* Cambiar el color del texto al pasar el mouse */
+  transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+}
+
+h1 {
+  color: #333; /* Color del título */
+  margin-bottom: 20px; /* Margen inferior del título */
+}
+
+/* Estilos para los enlaces en el navegador */
+.navbar a {
+  text-decoration: none; /* Sin subrayado */
+}
