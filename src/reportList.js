@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css'; // Asegúrate de importar los estilos
+import './App.css';
 
 const ReportList = () => {
     const [reports, setReports] = useState([]);

@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import UserList from './itemList'; // Asegúrate de que el nombre sea correcto
-import CompanyList from './companyList'; // Asegúrate de que el nombre sea correcto
-import ReportList from './reportList'; // Asegúrate de que el nombre sea correcto
-import RoleList from './roleList'; // Asegúrate de que el nombre sea correcto
-import './App.css'; // Asegúrate de que los estilos estén aplicados
+import UserList from './itemList';
+import CompanyList from './companyList';
+import ReportList from './reportList'; 
+import RoleList from './roleList';
+import './App.css';
 
 function App() {
     return (

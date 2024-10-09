@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css'; // Asegúrate de importar los estilos
+import './App.css';
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -49,14 +49,14 @@ const UserList = () => {
     const handleEdit = (user) => {
         setName(user.name);
         setEmail(user.email);
-        setPassword(user.password); // Dependiendo de cómo manejes las contraseñas, tal vez no quieras mostrar esto
+        setPassword(user.password);
         setCompany(user.company);
         setRole(user.role);
         setCurrentUserId(user._id);
     };
 
     return (
-        <div className="container"> {/* Agregamos la clase container */}
+        <div className="container"> 
             <h1>Lista de Usuarios</h1>
             <form onSubmit={handleSubmit}>
                 <input

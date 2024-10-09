@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css'; // Asegúrate de importar los estilos
+import './App.css';
 
 const CompanyList = () => {
     const [companies, setCompanies] = useState([]);
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
-    const [logo, setLogo] = useState('');
-    const [adminId, setAdminId] = useState('');
+    const [image, setImage] = useState('');
     const [currentCompanyId, setCurrentCompanyId] = useState(null);
-    const [users, setUsers] = useState([]);
 
     // Leer empresas
     useEffect(() => {
@@ -18,28 +16,27 @@ const CompanyList = () => {
             setCompanies(response.data);
         };
 
-        const fetchUsers = async () => {
-            const response = await axios.get('http://localhost:5000/users');
-            setUsers(response.data);
-        };
-
         fetchCompanies();
-        fetchUsers();
     }, []);
 
     // Crear o actualizar empresa
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (currentCompanyId) {
-            await axios.put(`http://localhost:5000/companies/${currentCompanyId}`, { name, address, logo, adminId });
+            // Actualizar empresa existente
+            await axios.put(`http://localhost:5000/companies/${currentCompanyId}`, { name, address, image });
         } else {
-            await axios.post('http://localhost:5000/companies', { name, address, logo, adminId });
+            // Crear nueva empresa
+            await axios.post('http://localhost:5000/companies', { name, address, image });
         }
+
+        // Resetear campos después de la operación
         setName('');
         setAddress('');
-        setLogo('');
-        setAdminId('');
+        setImage('');
         setCurrentCompanyId(null);
+
+        // Volver a cargar las empresas
         const response = await axios.get('http://localhost:5000/companies');
         setCompanies(response.data);
     };
@@ -47,16 +44,15 @@ const CompanyList = () => {
     // Eliminar empresa
     const handleDelete = async (id) => {
         await axios.delete(`http://localhost:5000/companies/${id}`);
-        setCompanies(companies.filter(company => company._id !== id));
+        setCompanies(companies.filter(company => company.id !== id));
     };
 
     // Editar empresa
     const handleEdit = (company) => {
         setName(company.name);
         setAddress(company.address);
-        setLogo(company.logo);
-        setAdminId(company.adminId);
-        setCurrentCompanyId(company._id);
+        setImage(company.image);
+        setCurrentCompanyId(company.id);
     };
 
     return (
@@ -79,28 +75,21 @@ const CompanyList = () => {
                 />
                 <input
                     type="text"
-                    value={logo}
-                    onChange={(e) => setLogo(e.target.value)}
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}
                     placeholder="Logotipo (URL)"
                     required
                 />
-                <select value={adminId} onChange={(e) => setAdminId(e.target.value)} required>
-                    <option value="">Seleccionar Administrador</option>
-                    {users.map(user => (
-                        <option key={user._id} value={user._id}>{user.name}</option>
-                    ))}
-                </select>
                 <button type="submit">{currentCompanyId ? 'Actualizar' : 'Crear'}</button>
             </form>
             <ul>
                 {companies.map(company => (
-                    <li key={company._id}>
+                    <li key={company.id}>
                         <h2>{company.name}</h2>
                         <p>{company.address}</p>
-                        <p>{company.logo}</p>
-                        <p>Administrador: {company.adminId}</p>
+                        <img src={company.image} alt={company.name} style={{ maxWidth: '100px' }} />
                         <button onClick={() => handleEdit(company)}>Editar</button>
-                        <button onClick={() => handleDelete(company._id)}>Eliminar</button>
+                        <button onClick={() => handleDelete(company.id)}>Eliminar</button>
                     </li>
                 ))}
             </ul>
